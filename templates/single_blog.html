@@ -1,0 +1,296 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block title %} / {{POST.hindi_title}} {% endblock %}
+{% block body %}
+<style>
+    .img-fluid_video{
+             width:100%;
+    }
+    .img-fluid_banner{
+             width:100%;
+    }
+</style>
+
+
+<section class="section single-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                        <div class="page-wrapper">
+                            <div class="blog-title-area text-center">
+                                <ol class="breadcrumb hidden-xs-down">
+                                    <li class="breadcrumb-item"><a href="{% url 'index' %}">होम पेज</a></li>
+                                    <li class="breadcrumb-item"><a href="/blog">ब्लॉग</a></li>
+                                    <li class="breadcrumb-item active">{{POST.hindi_title}}</li>
+                                </ol>
+                                <!-- Cat Wise Page -->
+                                <span class="color-orange"><a href="#" title="{{POST.Title}}">{{POST.Category}}</a></span>
+                                <!-- Cat Wise Page -->
+
+                                <h3>{{POST.hindi_title}}</h3>
+
+                                <div class="blog-meta big-meta">
+                                    <small><a href="{% url 'index' %}" title="{{POST.Title}}">{{POST.Date}}</a></small>
+                                    <small><a href="{% url 'index' %}" title="{{POST.Title}}">by {{POST.Author}}</a></small>
+                                  <!-- Temporary Now Working   <small><a href="#" title=""><i class="fa fa-eye"></i> 2344</a></small>   -->
+                                </div><!-- end meta -->
+
+                                <!--- Sharing Option Temporary Not Available --->
+                                <div class="post-sharing">
+                                    <ul class="list-inline">
+                                        <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
+                                        <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
+                                        <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
+                                    </ul>
+                                </div><!-- end post-sharing -->
+                                <!--- Sharing Option Temporary Not Available --->
+                            </div><!-- end title -->
+
+                            <div class="single-post-media">
+
+                                <img src="/media/{{POST.Img}}" class=".img-fluid_banner">
+                            </div><!-- end media -->
+
+
+
+                            <div class="blog-content">
+                                <div class="pp">
+
+                                    {{POST.intro | safe }}
+
+                                </div><!-- end pp -->
+
+
+
+                                <div class="pp">
+
+                                    {{POST.Content | safe }}
+
+                                </div><!-- end pp -->
+                            </div><!-- end content -->
+
+                            <div class="blog-title-area">
+
+                                <!--- This Sharing Options Temporary Not Available --->
+                                
+                                <!--- This Sharing Options Temporary Not Available --->
+
+                            </div><!-- end title -->
+
+                            <!--- This Section Are Use For Ads Purpose
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="banner-spot clearfix">
+                                        <div class="banner-img">
+                                            <img src="{% static 'assist/upload/banner_01.jpg' %}" alt="" class="img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            --->
+
+                            <hr class="invis1">
+                            <!---- This Section Are Used For Ads Purpose
+                            <div class="custombox prevnextpost clearfix">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                         <img src="{% static 'assist/upload/tech_menu_19.jpg' %}" alt="" class="img-fluid_banner float-right">
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <img src="{% static 'assist/upload/tech_menu_19.jpg' %}" alt="" class="img-fluid_banner float-right">
+                                    </div>
+                                </div>
+                            </div>
+                             ---->
+
+                            <hr class="invis1">
+
+
+
+                            <hr class="invis1">
+                            <!---- This Section Are Use For Ads Purpose
+                            <div class="custombox clearfix">
+                                <h4 class="small-title">You may also like</h4>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="blog-box">
+                                            <div class="post-media">
+                                                <a href="tech-single.html" title="">
+                                                    <img src="{% static 'assist/upload/tech_menu_04.jpg' %}" alt="" class="img-fluid">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="blog-box">
+                                            <div class="post-media">
+                                                <a href="tech-single.html" title="">
+                                                    <img src="{% static 'assist/upload/tech_menu_04.jpg' %}" alt="" class="img-fluid">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            ----->
+
+
+
+
+
+                            <hr class="invis1">
+
+
+                        </div><!-- end page-wrapper -->
+                    </div><!-- end col -->
+
+                    <!-- start aside for project -->
+
+                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                        <div class="sidebar">
+                            <div class="widget">
+                                <div class="banner-spot clearfix">
+                                    <div class="banner-img">
+                                        <img src="upload/banner_07.jpg" alt="" class="img-fluid">
+                                    </div><!-- end banner-img -->
+                                </div><!-- end banner -->
+                            </div><!-- end widget -->
+
+                            <div class="widget">
+                                <h2 class="widget-title">ट्रेंड वीडियो</h2>
+                                <div class="trend-videos">
+                                    {% for i in VIDEO %}
+                                    <div class="blog-box">
+                                        <div class="post-media">
+                                            <a href="/viral_videos" title="">
+                                                <video src="/media/{{i.Video}}" class="img-fluid" height="150px">
+                                                <div class="hovereffect">
+                                                    <span class="videohover"></span>
+                                                </div><!-- end hover -->
+                                                </video>
+                                            </a>
+                                        </div><!-- end media -->
+                                        <div class="blog-meta">
+                                            <h4><a href="/viral_videos" title="{{i.Title}}">{{i.Title}}</a></h4>
+                                        </div><!-- end meta -->
+                                    </div><!-- end blog-box -->
+
+                                    <hr class="invis">
+                                     {% endfor %}
+
+
+
+                                    </div><!-- end blog-box -->
+                                </div><!-- end videos -->
+                            </div><!-- end widget -->
+<hr>
+                            <div class="widget">
+                                <h2 class="widget-title">लोकप्रिय पोस्ट</h2>
+                                <div class="blog-list-widget">
+                                    <div class="list-group">
+                                        {% for i in ASIDE_POPULAR_POSTS %}
+                                        <a href="{{i.get_absolute_url}}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                            <div class="w-100 justify-content-between">
+                                                <img src="/media/{{i.Img}}" alt="" class="img-fluid float-left">
+                                                <h5 class="mb-1">{{i.Title | safe | truncatechars:40}}</h5>
+                                                <small>{{i.Date}}</small>
+                                            </div>
+                                        </a>
+                                        {% endfor %}
+                                    </div>
+                                </div><!-- end blog-list -->
+                            </div><!-- end widget -->
+                            <hr>
+                            <!-- gedgets loop -->
+                            <div class="widget">
+                                <h2 class="widget-title">लोकप्रिय गैजेट्स</h2>
+                                <div class="blog-list-widget">
+                                    <div class="list-group">
+                                        {% for i in ASIDE_POPULAR_GEDGETS %}
+                                        <a href="{{i.get_absolute_url}}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                            <div class="w-100 justify-content-between">
+                                                <img src="/media/{{i.Img}}" alt="" class="img-fluid float-left">
+                                                <h5 class="mb-1">{{i.Title | safe | truncatechars:40}}</h5>
+                                                <small>{{i.Date}}</small>
+                                            </div>
+                                        </a>
+                                        {% endfor %}
+                                    </div>
+                                </div><!-- end blog-list -->
+                            </div><!-- end widget -->
+
+<hr>
+
+
+                        <!-- Funny Img loop -->
+                            <div class="widget">
+                                <h2 class="widget-title">मजेदार तस्वीरें</h2>
+                                <div class="trend-videos">
+                                    {% for i in FUNNY_IMG %}
+                                    <div class="blog-box">
+                                        <div class="post-media">
+                                            <a href="/funny_images" title="">
+                                                <img src="/media/{{i.Img}}" class="img-fluid" height="150px">
+                                            </a>
+                                        </div><!-- end media -->
+                                        <div class="blog-meta">
+                                            <h4><a href="/viral_videos" title="{{i.Title}}">{{i.Title}}</a></h4>
+                                        </div><!-- end meta -->
+                                    </div><!-- end blog-box -->
+
+                                    <hr class="invis">
+                                     {% endfor %}
+                                    </div><!-- end blog-box -->
+                                </div><!-- end videos -->
+                            </div><!-- end widget -->
+                    <hr>
+
+
+
+
+                            <div class="widget">
+                                <h2 class="widget-title">Follow Us</h2>
+
+                                <div class="row text-center">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                        <a href="#" class="social-button facebook-button">
+                                            <i class="fa fa-facebook"></i>
+
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                        <a href="#" class="social-button twitter-button">
+                                            <i class="fa fa-twitter"></i>
+
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                        <a href="#" class="social-button google-button">
+                                            <i class="fa fa-google-plus"></i>
+
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                        <a href="#" class="social-button youtube-button">
+                                            <i class="fa fa-youtube"></i>
+
+                                        </a>
+                                    </div>
+                                </div>
+                            </div><!-- end widget -->
+
+
+                        </div><!-- end sidebar -->
+                    </div><!-- end col -->
+
+                     <!-- close aside for project -->
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </section>
+
+{% endblock %}
